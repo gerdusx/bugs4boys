@@ -29,6 +29,7 @@ const Header = () => {
                         <Button color="inherit" href="/shop">Shop</Button>
                         <Button color="inherit" href="/about">About</Button>
                         <Button color="inherit" href="/contact">Contact</Button>
+                        <Button color="inherit" href="/admin/products">Products</Button>
                     </Box>
                     <Box display="flex" alignItems="center">
                         {/* Shopping Cart on the right */}
