@@ -8,11 +8,14 @@ import * as yup from "yup";
 import { ProductCreateRequest, createProduct, deleteProduct, getProducts, updateProduct } from '@/services/productService'; // Adjust the path if necessary
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { IProduct } from '../../../../models/product';
+import { useRouter } from 'next/router';
 
 const inter = Inter({ subsets: ['latin'] });
 
   
 export default function Products() {
+    const router = useRouter();
+    
     const [isPanelOpen, setIsPanelOpen] = useState(false);
     const [products, setProducts] = useState<IProduct[]>([]);
     const [editingProduct, setEditingProduct] = useState<IProduct | null>(null);
@@ -54,11 +57,7 @@ export default function Products() {
     ];
 
     const handleEdit = (product: IProduct) => {
-        setEditingProduct(product);
-        setInitialValues({
-            name: product.name
-        });
-        setIsPanelOpen(true);
+        router.push(`/admin/products/${product._id}`);
     };
 
     const handleDelete = async (id: string) => {
